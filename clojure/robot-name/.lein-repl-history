@@ -1,0 +1,75 @@
+(def unique-name (format "%s%s%03d" "A" "A" (rand-int 1000)))
+unique-name
+(defn [] unique-name (format "%s%s%03d" "A" "A" (rand-int 1000)))
+(defn unique-name [] (format "%s%s%03d" "A" "A" (rand-int 1000)))
+unique-name
+(unique-name)
+exit
+(rand-nth (range 65 91))
+(format "%s" (rand-nth (range 65 91)))
+(format "%s" (char (rand-nth (range 65 91))))
+exit
+(doc repeatedly)
+(repeatedly (take 1 [1 2 3]))
+(repeatedly 2 (take 1 [1 2 3]))
+(repeatedly 2 #(take 1 [1 2 3]))
+exit
+(defn randomish
+  ([seed]
+    (repeatedly
+      (let [gen (java.util.Random. seed)]
+        (fn [] (.nextInt gen)))))
+  ([seed limit]
+    (repeatedly
+      (let [gen (java.util.Random. seed)]
+        (fn [] (.nextInt gen limit))))))
+(take 10 (randomish 1 10))
+(take 10 (randomish 2 10))
+(defn unique-random-numbers [n]
+  (let [a-set (set (take n (repeatedly #(rand-int n))))]
+    (concat a-set (set/difference (set (take n (range)))
+                                  a-set))))
+(unique-random-numbers 20)
+(require '[clojure.set :as set])
+; random generation of unique series of random numbers from 0 to n-1 
+(defn unique-random-numbers [n]
+  (let [a-set (set (take n (repeatedly #(rand-int n))))]
+    (concat a-set (set/difference (set (take n (range)))
+                                  a-set))))
+(unique-random-numbers 20)
+(set (take 5 (repeatedly #(rand-int 5))))
+(set/difference (set (take 5 (range))) (set (take 5 (repeatedly #(rand-int 5)))))
+(set (take 5 (repeatedly #(rand-int 5))))
+(set/difference (set (take 5 (range))) #{1})
+(range)
+(take 5 (range))
+(set/difference (set (take 5 (range))) #{1})
+(set/difference (set (take 5 (range))) #{2})
+(set/difference (set (take 5 (range))) #{3})
+(set/difference (set (take 5 (range))) #{4})
+(set/difference (set (take 5 (range))) #{5})
+(str 1)
+(set/difference (set (take 5 (range))) #{1})
+(set/difference (set (take 5 (range))) (set (take 5 (repeatedly #(rand-int 5)))))
+(set/difference (set (take 15 (range))) (set (take 15 (repeatedly #(rand-int 15)))))
+(unique-random-numbers 20)
+(set/difference (set (take 15 (range))) (set (take 15 (repeatedly #(rand-int 15)))))
+(unique-random-numbers 20)
+(def id-counter (java.util.concurrent.atomic.AtomicLong.))
+(defn id-gen []
+  (cons
+   (.getAndIncrement id-counter)
+   (lazy-seq
+     (id-gen))))
+(take 3 (id-gen))
+(def id-seq (id-gen))
+(take 3 id-seq)
+(take 3 (id-gen))
+(take 3 id-seq)
+(take 3 (id-gen))
+(id-counter)
+id-counter
+(.getAndIncrement id-counter)
+(unique-random-numbers 20)
+  clera
+exit

@@ -1,0 +1,8 @@
+*
+!.gitignore
+!ruby/
+!ruby/*/
+!ruby/*/*
+!clojure
+!clojure/*/
+!clojure/*/*
