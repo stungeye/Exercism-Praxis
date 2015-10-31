@@ -1,6 +1,6 @@
 class Grains
   def self.square( position )
-    chessboard[position-1]
+    chessboard[ position - 1 ]
   end
 
   def self.chessboard
