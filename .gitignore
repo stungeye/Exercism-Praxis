@@ -6,3 +6,6 @@
 !clojure
 !clojure/*/
 !clojure/*/*
+!java
+!java/*/
+!java/*/*
