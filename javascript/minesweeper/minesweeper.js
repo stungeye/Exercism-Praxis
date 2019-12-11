@@ -50,4 +50,4 @@ export const annotate = (minefield) => {
   });
 
   return minefieldWithCounts.map(row => row.join('')); // Assemble back into 1D array of strings.
-};
+}
