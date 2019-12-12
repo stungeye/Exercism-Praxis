@@ -7,6 +7,7 @@ namespace space_age {
     public:
         space_age(int seconds);
         int seconds() const;
+        double on_earth() const;
     };
 }  // namespace space_age
 

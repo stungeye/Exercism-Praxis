@@ -9,4 +9,8 @@ namespace space_age {
     {
         return age_in_seconds;
     }
+    double space_age::on_earth() const
+    {
+        return double(age_in_seconds) / 31557600;
+    }
 }  // namespace space_age
