@@ -1,5 +1,5 @@
 # Exercism.io Praxis
 
-My Clojure, Ruby and Java solutions to exercism.io problems.
+My C++, Clojure, Java, Javascript, and Ruby solutions to exercism.io problems.
 
 Praxis makes better.
