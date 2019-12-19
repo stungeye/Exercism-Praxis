@@ -1,19 +1,22 @@
 #if !defined(NUCLEOTIDE_COUNT_H)
 #define NUCLEOTIDE_COUNT_H
 
-#include <string>
 #include <map>
+#include <string>
 
 namespace nucleotide_count {
     class counter {
-        const std::string possible_nucleotides = "ATCG";
-        std::string sequence;
+        inline static const std::string possible_nucleotides{"ATCG"};
+        std::map<char, int> counts;
     public:
-        counter(const std::string& sequence);
+        explicit counter(const std::string& sequence);
         std::map<char, int> nucleotide_counts() const;
         int count(char nucleotide) const;
-        bool invalid_nucleotide(char nucleotide) const;
+    private:
+        static bool invalid_nucleotide(char nucleotide);
+        void assemble_nucleotide_counts(const std::string& sequence);
     };
-}  // namespace nucleotide_count
+
+} // namespace nucleotide_count
 
 #endif // NUCLEOTIDE_COUNT_H
