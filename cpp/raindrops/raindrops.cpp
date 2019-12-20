@@ -3,21 +3,19 @@
 namespace raindrops {
 
 	std::string convert(int number) {
-		std::string pling, plang, plong;
+		std::string raindrops;
 
 		if (number % 3 == 0) {
-			pling = "Pling";
+			raindrops += "Pling";
 		}
 
 		if (number % 5 == 0) {
-			plang = "Plang";
+			raindrops += "Plang";
 		}
 
 		if (number % 7 == 0) {
-			plong = "Plong";
+			raindrops += "Plong";
 		}
-
-		const std::string raindrops = pling + plang + plong;
 
 		return raindrops.empty() ? std::to_string(number) : raindrops;
 	}
