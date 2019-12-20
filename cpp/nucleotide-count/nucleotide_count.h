@@ -3,18 +3,19 @@
 
 #include <map>
 #include <string>
+#include <string_view>
 
 namespace nucleotide_count {
 	class counter {
 	    inline static const std::string possible_nucleotides{"ATCG"};
 		std::map<char, int> counts;
 	public:
-		explicit counter(const std::string& sequence);
-		[[nodiscard]] std::map<char, int> nucleotide_counts() const;
+		explicit counter(std::string_view sequence);
+		[[nodiscard]] const std::map<char, int>& nucleotide_counts() const noexcept;
 		[[nodiscard]] int count(char nucleotide) const;
 	private:
-		static bool invalid_nucleotide(char nucleotide);
-		void assemble_nucleotide_counts(const std::string& sequence);
+		static bool invalid_nucleotide(char nucleotide) noexcept;
+		void assemble_nucleotide_counts(std::string_view sequence);
 	};
 
 } // namespace nucleotide_count

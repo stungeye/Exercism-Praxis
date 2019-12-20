@@ -4,14 +4,14 @@
 #include <stdexcept>
 
 namespace nucleotide_count {
-	counter::counter(const std::string& sequence) {
+	counter::counter(std::string_view sequence) {
 		if (std::any_of(sequence.begin(), sequence.end(), invalid_nucleotide)) {
 			throw std::invalid_argument("Sequence contains an invalid nucleotide.");
 		}
 		assemble_nucleotide_counts(sequence);
 	}
 
-	std::map<char, int> counter::nucleotide_counts() const {
+	const std::map<char, int>& counter::nucleotide_counts() const noexcept {
 		return counts;
 	}
 
@@ -24,11 +24,11 @@ namespace nucleotide_count {
 
 	// Private Methods
 
-	bool counter::invalid_nucleotide(char nucleotide) {
+	bool counter::invalid_nucleotide(char nucleotide) noexcept {
 		return possible_nucleotides.find(nucleotide) == std::string::npos;
 	}
 
-	void counter::assemble_nucleotide_counts(const std::string& sequence) {
+	void counter::assemble_nucleotide_counts(std::string_view sequence) {
 		for (auto nucleotide : possible_nucleotides) {
 			counts[nucleotide] = static_cast<int>(std::count(sequence.begin(), sequence.end(), nucleotide));
 		}
