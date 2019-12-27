@@ -3,12 +3,6 @@
 #include <bitset>
 
 namespace pangram {
-    // ASCII table positions for Roman letters.
-    inline const char a = 'a';
-    inline const char z = 'z';
-    inline const char A = 'A';
-    inline const char Z = 'Z';
-
     inline const int letters_in_alphabet = 26;
 
     // Track presence of case-insensitive Roman letters
@@ -19,12 +13,12 @@ namespace pangram {
         // Letters tracked by their ASCII table position.
         // i.e. letters_seen[0] represents both 'A' and 'a'.
         for (auto c : sentence) {
-            if ((c >= A) && (c <= Z )) {
-                letters_seen.set(c - A);
+            if ((c >= 'A') && (c <= 'Z' )) {
+                letters_seen.set(c - 'A');
             }
 
-            if ((c >= a) && (c <= z)) {
-                letters_seen.set(c - a);
+            if ((c >= 'a') && (c <= 'z')) {
+                letters_seen.set(c - 'a');
             }
         }
 
