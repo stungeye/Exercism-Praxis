@@ -1,20 +1,22 @@
 #include "pangram.h"
 
 #include <algorithm>
-#include <iostream>
+#include <cctype>
+
+#include <set>
+
 
 namespace pangram {
-	bool is_pangram(std::string_view sentence) {
-		std::string lower_case_sentence;
+    inline const int letters_in_alphabet = 26;
 
-		// Convert sentence to all lower case letters.
-		std::transform(sentence.begin(), sentence.end(),
-		               std::back_inserter(lower_case_sentence), std::tolower);
+    bool is_pangram(std::string sentence) {
+        std::transform(sentence.begin(), sentence.end(), sentence.begin(),
+                       [](char letter) { return std::tolower(letter); });
 
-		// Are all of the letters in the alphabet contained in the lower case sentence?
-		return std::all_of(alphabet.begin(), alphabet.end(),
-		                   [lower_case_sentence](char letter) {
-			                   return lower_case_sentence.find(letter) != std::string::npos;
-		                   });
-	}
+        std::set<char> characters(sentence.begin(), sentence.end());
+        
+        return std::count_if(characters.begin(), characters.end(), [](char letter) {
+            return isalpha(letter);
+        }) == letters_in_alphabet;
+    }
 } // namespace pangram

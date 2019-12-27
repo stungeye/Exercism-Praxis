@@ -5,8 +5,7 @@
 #include <string_view>
 
 namespace pangram {
-	inline static const std::string alphabet{ "abcdefghijklmnopqrstuvwxyz" };
-	bool is_pangram(std::string_view sentence);
+	bool is_pangram(std::string sentence);
 }  // namespace pangram
 
 #endif // PANGRAM_H
