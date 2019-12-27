@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cctype>
 
-#include <set>
+#include <unordered_set>
 
 
 namespace pangram {
@@ -13,7 +13,7 @@ namespace pangram {
         std::transform(sentence.begin(), sentence.end(), sentence.begin(),
                        [](char letter) { return std::tolower(letter); });
 
-        std::set<char> characters(sentence.begin(), sentence.end());
+        std::unordered_set<char> characters(sentence.begin(), sentence.end());
         
         return std::count_if(characters.begin(), characters.end(), [](char letter) {
             return isalpha(letter);
