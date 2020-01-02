@@ -1,8 +1,10 @@
 #if !defined(SAY_H)
 #define SAY_H
 
-namespace say {
+#include <string>
 
-}  // namespace say
+namespace say {
+    std::string in_english(const long long number);
+} // namespace say
 
 #endif // SAY_H
