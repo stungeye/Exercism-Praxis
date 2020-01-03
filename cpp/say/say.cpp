@@ -5,7 +5,6 @@
 namespace say {
 
     const std::map<int, std::string> english_numbers{
-        {0, ""},
         {1, "one"},
         {2, "two"},
         {3, "three"},
@@ -43,7 +42,7 @@ namespace say {
     };
 
    int largest_named_divisor(const long long number) {
-        auto divisor = 0;
+        auto divisor = 1;
         for (const auto& [key, value] : named_place_values) {
             if (number >= key) {
                 divisor = key;
