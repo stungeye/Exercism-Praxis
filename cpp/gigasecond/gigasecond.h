@@ -4,7 +4,7 @@
 using namespace boost::posix_time;
 
 namespace gigasecond {
-	ptime advance(boost::posix_time::ptime time);
-}  // namespace gigasecond
+	ptime advance(ptime time);
+} // namespace gigasecond
 
 #endif // GIGASECOND_H
