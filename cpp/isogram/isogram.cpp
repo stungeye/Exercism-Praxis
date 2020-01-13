@@ -1,6 +1,7 @@
 #include "isogram.h"
 
 #include <bitset>
+#include <ctype.h>
 
 namespace isogram {
     inline const int letters_in_alphabet = 26;
@@ -9,11 +10,11 @@ namespace isogram {
         std::bitset<letters_in_alphabet> letters_seen;
 
         for (auto c : word) {
-            const auto position = tolower(c) - 'a';
-
-            if ((position < 0) || (position >= letters_in_alphabet)) {
+            if (!std::isalpha(c)) {
                 continue;
             }
+
+            const auto position = std::tolower(c) - 'a';
 
             if (letters_seen[position]) {
                 return false;
