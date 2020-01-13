@@ -4,7 +4,7 @@
 #include <string>
 
 namespace isogram {
-    bool is_isogram(const std::string word);
+    bool is_isogram(const std::string& word);
 }  // namespace isogram
 
 #endif // ISOGRAM_H
