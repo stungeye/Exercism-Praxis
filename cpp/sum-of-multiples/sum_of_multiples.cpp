@@ -1,9 +1,13 @@
 #include "sum_of_multiples.h"
 
 #include <algorithm>
-#include <iostream>
-#include <iterator>
 #include <numeric>
+
+// Refactor with:
+// https://exercism.io/tracks/cpp/exercises/sum-of-multiples/solutions/de81544b49814f509c330baa14cf885d
+// https://exercism.io/tracks/cpp/exercises/sum-of-multiples/solutions/149f41a09da94a4dbe9aab73ece99c9e
+// https://exercism.io/tracks/cpp/exercises/sum-of-multiples/solutions/818d2a014dfa41389a8b9b53bbcb54cf
+// https://exercism.io/tracks/cpp/exercises/sum-of-multiples/solutions/b84fd51b07ae4b8f84fbbf5c26a932d2
 
 namespace sum_of_multiples {
 
