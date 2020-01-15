@@ -12,7 +12,7 @@ namespace scrabble_score {
 	};
 
 	int score(const std::string_view word) {
-		return std::accumulate(word.begin(), word.end(), 0, [](int score, auto letter) {
+		return std::accumulate(word.begin(), word.end(), 0, [](auto score, auto letter) {
 			return score + letter_scores.at(std::tolower(letter));
 		});
 	}
