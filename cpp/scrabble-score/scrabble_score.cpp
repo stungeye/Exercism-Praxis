@@ -2,6 +2,7 @@
 
 #include <map>
 #include <cctype>
+#include <numeric>
 
 namespace scrabble_score {
 	const std::map<char, int> letter_scores{
@@ -10,13 +11,9 @@ namespace scrabble_score {
 		{'j', 8}, {'x', 8}, {'q', 10}, {'z', 10}
 	};
 
-	int score(std::string_view word) {
-		int score = 0;
-
-		for (auto letter : word) {
-			score += letter_scores.at(std::tolower(letter));
-		}
-
-		return score;
+	int score(const std::string_view word) {
+		return std::accumulate(word.begin(), word.end(), 0, [](int score, auto letter) {
+			return score + letter_scores.at(std::tolower(letter));
+		});
 	}
 } // namespace scrabble_score
