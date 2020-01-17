@@ -10,8 +10,13 @@ namespace binary {
 
 		for (size_t i = 0; i < length; ++i) {
 			const size_t position_from_end = length - 1 - i;
-			if (binary.at(position_from_end) == '1') {
+			const auto bit = binary.at(position_from_end);
+			
+			if (bit == '1') {
 				decimal += pow(2, i);
+			} else if (bit != '0') {
+				// Invalid character detected.
+				return 0;
 			}
 		}
 
