@@ -16,7 +16,6 @@ TEST_CASE("wink_for_1")
     REQUIRE(vector<string>{"wink"} == secret_handshake::commands(1));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("double_blink_for_10")
 {
     REQUIRE(vector<string>{"double blink"} == secret_handshake::commands(2));
@@ -69,4 +68,3 @@ TEST_CASE("do_nothing_for_zero")
     REQUIRE(vector<string>{} == secret_handshake::commands(0));
 }
 
-#endif // !EXERCISM_RUN_ALL_TESTS
