@@ -7,19 +7,18 @@ namespace sieve {
 
 	constexpr int smallestPrime{2};
 
-	std::vector<int> sequence(int startingValue, int endingValue) {
+	std::vector<int> sequence(int startingValue, const int endingValue) {
 		std::vector<int> v(endingValue - startingValue + 1);
-		std::generate(v.begin(), v.end(),
-		              [n = startingValue]() mutable { return n++; });
+		std::ranges::generate(v, [n = startingValue]() mutable { return n++; });
 		return v;
 	}
 
-	bool includes(std::vector<int> haystack, int needle) {
-		const auto it{std::find(haystack.begin(), haystack.end(), needle)};
+	bool includes(std::vector<int> haystack, const int needle) {
+		const auto it{std::ranges::find(haystack, needle)};
 		return it != haystack.end();
 	}
 
-	std::vector<int> primes(int limit) {
+	std::vector<int> primes(const int limit) {
 		if (limit < smallestPrime) return {};
 
 		const auto testRange{sequence(smallestPrime, static_cast<int>(std::sqrt(limit)))};
@@ -28,12 +27,9 @@ namespace sieve {
 		for (auto prime : testRange) {
 			if (!includes(potentialPrimes, prime)) continue;
 
-			potentialPrimes.erase(std::remove_if(potentialPrimes.begin(),
-			                                     potentialPrimes.end(),
-			                                     [prime](auto num) {
-				                                     return prime != num && num % prime == 0;
-			                                     }),
-			                      potentialPrimes.end());
+			std::erase_if(potentialPrimes, [prime](auto num) {
+				return prime != num && num % prime == 0;
+			});
 		}
 
 		return potentialPrimes;
