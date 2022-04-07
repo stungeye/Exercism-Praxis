@@ -3,7 +3,9 @@
 #include <vector>
 
 namespace sieve {
-	std::vector<int> primes(int limit);
+	std::vector<int> primesCpp17(int limit); // CPP17
+	std::vector<int> primes(int limit); // CPP20
+	std::vector<int> primesOptimized(int limit); // CPP20 + Optimizations
 }  // namespace sieve
 
 #endif // SIEVE_H
